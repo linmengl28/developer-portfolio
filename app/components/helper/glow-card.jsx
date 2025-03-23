@@ -1,14 +1,14 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const GlowCard = ({ children, identifier }) => {
-  if (typeof window === "undefined") return null; // Prevents SSR errors
-
   const containerRef = useRef(null);
   const cardsRef = useRef([]);
 
   useEffect(() => {
+    if (typeof window === "undefined") return; // 确保只在客户端运行
+
     const CONTAINER = containerRef.current;
     if (!CONTAINER) return;
 
@@ -70,6 +70,8 @@ const GlowCard = ({ children, identifier }) => {
       document.body.removeEventListener("pointermove", UPDATE);
     };
   }, [identifier]);
+
+  if (typeof window === "undefined") return null; // 确保组件只在客户端渲染
 
   return (
     <div ref={containerRef} className={`glow-container-${identifier} glow-container`}>
