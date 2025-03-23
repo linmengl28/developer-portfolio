@@ -1,3 +1,4 @@
+"use client";
 import dynamic from 'next/dynamic';
 
 // Dynamically import the GlowCard component with SSR disabled
