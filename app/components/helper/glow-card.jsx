@@ -5,17 +5,13 @@ import { useEffect, useRef, useState } from "react";
 const GlowCard = ({ children, identifier }) => {
   const containerRef = useRef(null);
   const cardsRef = useRef([]);
-  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    // Ensure this only runs on the client side
-    setIsClient(true);
-  }, []);
-
-  useEffect(() => {
-    if (!isClient || !containerRef.current) return;
+    if (typeof window === "undefined") return; // Prevent execution during SSR
 
     const CONTAINER = containerRef.current;
+    if (!CONTAINER) return;
+
     const CARDS = Array.from(CONTAINER.querySelectorAll(`.glow-card-${identifier}`));
     cardsRef.current = CARDS;
 
@@ -73,7 +69,7 @@ const GlowCard = ({ children, identifier }) => {
     return () => {
       document.body.removeEventListener("pointermove", UPDATE);
     };
-  }, [isClient, identifier]);
+  }, [identifier]);
 
   return (
     <div ref={containerRef} className={`glow-container-${identifier} glow-container`}>
