@@ -7,7 +7,7 @@ const GlowCard = ({ children, identifier }) => {
   const cardsRef = useRef([]);
 
   useEffect(() => {
-    if (typeof window === "undefined") return; // 确保只在客户端运行
+    if (typeof window === "undefined") return; // Ensure client-side execution
 
     const CONTAINER = containerRef.current;
     if (!CONTAINER) return;
@@ -25,14 +25,16 @@ const GlowCard = ({ children, identifier }) => {
     };
 
     const UPDATE = (event) => {
+      if (!cardsRef.current.length) return;
+      
       cardsRef.current.forEach((CARD) => {
         const CARD_BOUNDS = CARD.getBoundingClientRect();
 
         if (
-          event?.x > CARD_BOUNDS.left - CONFIG.proximity &&
-          event?.x < CARD_BOUNDS.left + CARD_BOUNDS.width + CONFIG.proximity &&
-          event?.y > CARD_BOUNDS.top - CONFIG.proximity &&
-          event?.y < CARD_BOUNDS.top + CARD_BOUNDS.height + CONFIG.proximity
+          event.clientX > CARD_BOUNDS.left - CONFIG.proximity &&
+          event.clientX < CARD_BOUNDS.left + CARD_BOUNDS.width + CONFIG.proximity &&
+          event.clientY > CARD_BOUNDS.top - CONFIG.proximity &&
+          event.clientY < CARD_BOUNDS.top + CARD_BOUNDS.height + CONFIG.proximity
         ) {
           CARD.style.setProperty("--active", "1");
         } else {
@@ -45,7 +47,7 @@ const GlowCard = ({ children, identifier }) => {
         ];
 
         let ANGLE =
-          (Math.atan2(event?.y - CARD_CENTER[1], event?.x - CARD_CENTER[0]) * 180) /
+          (Math.atan2(event.clientY - CARD_CENTER[1], event.clientX - CARD_CENTER[0]) * 180) /
           Math.PI;
 
         ANGLE = ANGLE < 0 ? ANGLE + 360 : ANGLE;
@@ -54,7 +56,7 @@ const GlowCard = ({ children, identifier }) => {
       });
     };
 
-    document.body.addEventListener("pointermove", UPDATE);
+    CONTAINER.addEventListener("pointermove", UPDATE);
 
     const RESTYLE = () => {
       CONTAINER.style.setProperty("--gap", CONFIG.gap);
@@ -64,14 +66,14 @@ const GlowCard = ({ children, identifier }) => {
     };
 
     RESTYLE();
-    UPDATE();
+    UPDATE(new MouseEvent("pointermove", { clientX: 0, clientY: 0 })); // Initialize effect
 
     return () => {
-      document.body.removeEventListener("pointermove", UPDATE);
+      CONTAINER.removeEventListener("pointermove", UPDATE);
     };
   }, [identifier]);
 
-  if (typeof window === "undefined") return null; // 确保组件只在客户端渲染
+  if (typeof window === "undefined") return null; // Ensure client-side rendering
 
   return (
     <div ref={containerRef} className={`glow-container-${identifier} glow-container`}>
