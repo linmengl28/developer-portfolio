@@ -4,7 +4,7 @@ import Image from "next/image";
 import { BsPersonWorkspace } from "react-icons/bs";
 import lottieFile from '../../../assets/lottie/study.json';
 import AnimationLottie from "../../helper/animation-lottie";
-import DynamicGlowCard from "../../helper/DynamicGlowCard";
+import GlowCard from "../../helper/glow-card";
 
 
 function Education() {
@@ -45,7 +45,8 @@ function Education() {
             <div className="flex flex-col gap-6">
               {
                 educations.map(education => (
-                  <DynamicGlowCard key={education.id} identifier={`education-${education.id}`}>
+                  <
+                  GlowCard key={education.id} identifier={`education-${education.id}`}>
                     <div className="p-3 relative text-white">
                       <Image
                         src="/blur-23.svg"
@@ -71,7 +72,8 @@ function Education() {
                         </div>
                       </div>
                     </div>
-                  </DynamicGlowCard>
+                  </
+                GlowCard>
                 ))
               }
             </div>
