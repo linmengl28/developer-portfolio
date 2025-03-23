@@ -14,11 +14,13 @@ import coffeescript from '../app/assets/svg/skills/coffeescript.svg';
 import cplusplus from '../app/assets/svg/skills/cplusplus.svg';
 import csharp from '../app/assets/svg/skills/csharp.svg';
 import css from '../app/assets/svg/skills/css.svg';
+import ci_cd from '../app/assets/svg/skills/ci-cd.svg';
 import dart from '../app/assets/svg/skills/dart.svg';
 import deno from '../app/assets/svg/skills/deno.svg';
 import django from '../app/assets/svg/skills/django.svg';
 import docker from '../app/assets/svg/skills/docker.svg';
 import fastify from '../app/assets/svg/skills/fastify.svg';
+import flask from '../app/assets/svg/skills/flask.svg';
 import figma from '../app/assets/svg/skills/figma.svg';
 import firebase from '../app/assets/svg/skills/firebase.svg';
 import flutter from '../app/assets/svg/skills/flutter.svg';
@@ -47,6 +49,7 @@ import nextJS from '../app/assets/svg/skills/nextJS.svg';
 import nginx from '../app/assets/svg/skills/nginx.svg';
 import numpy from '../app/assets/svg/skills/numpy.svg';
 import nuxtJS from '../app/assets/svg/skills/nuxtJS.svg';
+import node_js from '../app/assets/svg/skills/node-js.svg';
 import opencv from '../app/assets/svg/skills/opencv.svg';
 import photoshop from '../app/assets/svg/skills/photoshop.svg';
 import php from '../app/assets/svg/skills/php.svg';
@@ -55,14 +58,19 @@ import postgresql from '../app/assets/svg/skills/postgresql.svg';
 import premierepro from '../app/assets/svg/skills/premierepro.svg';
 import python from '../app/assets/svg/skills/python.svg';
 import pytorch from '../app/assets/svg/skills/pytorch.svg';
+import rabbitmq from '../app/assets/svg/skills/rabbitmq.svg';
 import react from '../app/assets/svg/skills/react.svg';
+import redis from '../app/assets/svg/skills/redis.svg';
 import ruby from '../app/assets/svg/skills/ruby.svg';
+import spark from '../app/assets/svg/skills/spark.svg';
+import spring from '../app/assets/svg/skills/spring.svg';
 import selenium from '../app/assets/svg/skills/selenium.svg';
 import sketch from '../app/assets/svg/skills/sketch.svg';
 import strapi from '../app/assets/svg/skills/strapi.svg';
 import svelte from '../app/assets/svg/skills/svelte.svg';
 import swift from '../app/assets/svg/skills/swift.svg';
 import tailwind from '../app/assets/svg/skills/tailwind.svg';
+import terraform from '../app/assets/svg/skills/terraform.svg';
 import tensorflow from '../app/assets/svg/skills/tensorflow.svg';
 import typescript from '../app/assets/svg/skills/typescript.svg';
 import unity from '../app/assets/svg/skills/unity.svg';
@@ -111,10 +119,22 @@ export const skillsImage = (skill) => {
       return nextJS;
     case 'nuxt js':
       return nuxtJS;
+    case 'node.js':
+      return node_js;
+    case 'rabbitmq':
+      return rabbitmq;
     case 'react':
       return react;
+    case 'redis':
+      return redis;
+    case 'spring':
+      return spring;
+    case 'spark':
+      return spark;
     case 'svelte':
       return svelte;
+    case 'terraform':
+      return terraform;
     case 'typescript':
       return typescript;
     case 'vue':
@@ -127,6 +147,8 @@ export const skillsImage = (skill) => {
       return capacitorjs;
     case 'coffeescript':
       return coffeescript;
+    case 'ci/cd':
+      return ci_cd;
     case 'memsql':
       return memsql;
     case 'mongodb':
@@ -213,6 +235,8 @@ export const skillsImage = (skill) => {
       return blender;
     case 'fastify':
       return fastify;
+    case 'flask':
+      return flask;
     case 'figma':
       return figma;
     case 'flutter':

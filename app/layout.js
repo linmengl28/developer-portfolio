@@ -10,9 +10,9 @@ import "./css/globals.scss";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Portfolio of Abu Said - Software Developer",
+  title: "Portfolio of Menglin Lin - Software Developer",
   description:
-    "This is the portfolio of Abu Said. I am a full stack developer and a self taught developer. I love to learn new things and I am always open to collaborating with others. I am a quick learner and I am always looking for new challenges.",
+    "This My name is Menglin Amy Lin, a dedicated software engineer pursuing my Master's in Computer Science at Northeastern University. I specialize in AI-driven solutions and data analytics, with expertise in Python, Java, and JavaScript. I'm passionate about building scalable systems that transform raw data into actionable insights through efficient algorithms and innovative approaches. My technical focus includes database optimization, RESTful API development, and implementing AI technologies that deliver measurable results. I enjoy tackling complex problems through creative solutions and am seeking opportunities where I can apply my technical skills while continuing to grow as a professional.",
 };
 
 export default function RootLayout({ children }) {
